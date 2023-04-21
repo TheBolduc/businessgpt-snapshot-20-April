@@ -15,12 +15,12 @@
   let chatContainer: HTMLDivElement;
 
   const chatbotOptions = [
-    { name: 'Chatbot 1', purpose: 'Purpose 1' },
-    { name: 'Chatbot 2', purpose: 'Purpose 2' },
-    { name: 'Chatbot 3', purpose: 'Purpose 2' },
-    { name: 'Chatbot 4', purpose: 'Purpose 2' },
-    { name: 'Chatbot 5', purpose: 'Purpose 2' },
-    { name: 'Chatbot 6', purpose: 'Purpose 2' },
+    { name: 'Business Operations and Efficiency', purpose: 'Purpose 1' },
+    { name: 'Customer Relationship and Change Management', purpose: 'Purpose 2' },
+    { name: 'Data-Driven Decision Making and Analytics', purpose: 'Purpose 3' },
+    { name: 'Innovation, Sustainability, and Growth', purpose: 'Purpose 4' },
+    { name: 'Sales, Marketing, and Customer Experience', purpose: 'Purpose 5' },
+    { name: 'Workforce Management and Development', purpose: 'Purpose 6' },
   ];
 
   function handleChatbotSelection(chatbot) {
