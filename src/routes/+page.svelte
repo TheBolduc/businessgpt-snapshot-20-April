@@ -48,7 +48,7 @@
       headers: {
         'Content-Type': 'application/json',
       },
-      payload: JSON.stringify({ messages: chatMessages }),
+      payload: JSON.stringify({ messages: chatMessages, selectedChatbot }),
     });
     
     query = '';
