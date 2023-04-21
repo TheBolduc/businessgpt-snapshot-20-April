@@ -1,5 +1,5 @@
 <script>
-  import Sidebar from '../../lib/components/Sidebar.svelte';
+  import Sidebar from 'businessgpt-snapshot-20-april/src/lib/components/Sidebar.svelte';
   import '../app.css';
 </script>
 
