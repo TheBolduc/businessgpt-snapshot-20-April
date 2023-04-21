@@ -1,5 +1,6 @@
 <script lang="ts">
   import ChatMessage from '$lib/components/ChatMessage.svelte';
+  import ChatbotSelection from '$lib/components/ChatbotSelection.svelte';
   import type { ChatCompletionRequestMessage } from 'openai';
   import { SSE } from 'sse.js';
 
@@ -7,10 +8,24 @@
   let answer: string = '';
   let loading: boolean = false;
   let chatMessages: ChatCompletionRequestMessage[] = [];
+  let selectedChatbot = null;
 
   let scrollToDiv: HTMLDivElement;
   let inputField: HTMLInputElement;
   let chatContainer: HTMLDivElement;
+
+  const chatbotOptions = [
+    { name: 'Chatbot 1', purpose: 'Purpose 1' },
+    { name: 'Chatbot 2', purpose: 'Purpose 2' },
+    { name: 'Chatbot 3', purpose: 'Purpose 2' },
+    { name: 'Chatbot 4', purpose: 'Purpose 2' },
+    { name: 'Chatbot 5', purpose: 'Purpose 2' },
+    { name: 'Chatbot 6', purpose: 'Purpose 2' },
+  ];
+
+  function handleChatbotSelection(chatbot) {
+    selectedChatbot = chatbot;
+  }
 
   $: {
     if (scrollToDiv) {
@@ -22,11 +37,11 @@
     if (loading) {
       return;
     }
-
+    
     if (!query.trim()) {
       return;
     }
-
+    
     loading = true;
     chatMessages = [...chatMessages, { role: 'user', content: query }];
     const eventSource = new SSE('/api/chat', {
@@ -35,6 +50,7 @@
       },
       payload: JSON.stringify({ messages: chatMessages }),
     });
+    
     query = '';
     inputField.disabled = true;
     eventSource.addEventListener('error', handleError);
