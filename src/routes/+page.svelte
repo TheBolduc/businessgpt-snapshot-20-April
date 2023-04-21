@@ -114,7 +114,8 @@
             <div class="flex flex-col gap-2 h-[calc(100vh-300px)] overflow-y-auto mt-4 mb-4" bind:this={chatContainer}>
               <ChatMessage
                 type="assistant"
-                message="Hi! My name is Tommy, ask me any business-related questions, I'm here to help you grow your business, learn about business, start your business and much more!"
+                message="Hi! My name is {selectedChatbot.name} , ask me any {selectedChatbot.topic}-related questions, I'm here to help you grow your business, learn about business, start your business and much more!"
+                chatbotName="{selectedChatbot.name}"           
               />
               {#each chatMessages as message}
                 <ChatMessage type={message.role} message={message.content} />
